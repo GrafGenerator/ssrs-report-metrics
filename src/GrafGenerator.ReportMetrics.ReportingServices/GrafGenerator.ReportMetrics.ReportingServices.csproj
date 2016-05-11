@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Clients\ReportExecutionService2005.cs" />
     <Compile Include="Clients\ReportingServices2010.cs" />
+    <Compile Include="Connection\ServerConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
