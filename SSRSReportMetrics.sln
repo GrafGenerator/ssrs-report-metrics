@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.ReportMetrics.Core", "src\GrafGenerator.ReportMetrics.Core\GrafGenerator.ReportMetrics.Core.csproj", "{91DA6906-DBAB-4C26-9A9C-E369E675A723}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.ReportMetrics.ReportingServices", "src\GrafGenerator.ReportMetrics.ReportingServices\GrafGenerator.ReportMetrics.ReportingServices.csproj", "{C50BE18A-E05D-41D4-8C6F-53C5A8480E2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.ReportMetrics.Tests", "src\GrafGenerator.ReportMetrics.Tests\GrafGenerator.ReportMetrics.Tests.csproj", "{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C50BE18A-E05D-41D4-8C6F-53C5A8480E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50BE18A-E05D-41D4-8C6F-53C5A8480E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50BE18A-E05D-41D4-8C6F-53C5A8480E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

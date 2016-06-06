@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GrafGenerator.ReportMetrics.Core")]
+[assembly: AssemblyTitle("GrafGenerator.ReportMetrics.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GrafGenerator.ReportMetrics.Core")]
+[assembly: AssemblyProduct("GrafGenerator.ReportMetrics.Tests")]
 [assembly: AssemblyCopyright("Copyright © 2016 Nikita Ivanov (grafgenerator@gmail.com)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("91da6906-dbab-4c26-9a9c-e369e675a723")]
+[assembly: Guid("d370e75f-81b7-496d-9caf-2a7287bf0bb7")]
 
 // Version information for an assembly consists of the following four values:
 //
