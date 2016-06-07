@@ -1,15 +1,27 @@
 ﻿using NUnit.Framework;
 using GrafGenerator.ReportMetrics.ReportingServices.Connection;
+using GrafGenerator.ReportMetrics.Tests.Config;
 
 namespace GrafGenerator.ReportMetrics.Tests
 {
 	[TestFixture]
 	public class ServerConnectionFixture
 	{
-        [Test]
+		private string _serverPath;
+
+
+		[SetUp]
+		public void SetUp()
+		{
+			var config = new Extractor("config.json").Config;
+
+			_serverPath = config.ServerPath;
+		}
+
+		[Test]
 		public void Test_ReportingService_ConnectionExist()
 		{
-			var connection = ServerConnection.Create("http://uk-sql01/ReportServer", true); // assume connection to localhost
+			var connection = ServerConnection.Create(_serverPath, true); // assume connection to localhost
 			Assert.That(connection.ReportingService, Is.Not.Null);
 
 			var extensionsList = connection.ReportingService.ListExtensions("All");
@@ -19,7 +31,7 @@ namespace GrafGenerator.ReportMetrics.Tests
         [Test]
 		public void Test_ReportExecutionService_ConnectionExist()
 		{
-			var connection = ServerConnection.Create("http://uk-sql01/ReportServer", true); // assume connection to localhost
+			var connection = ServerConnection.Create(_serverPath, true); // assume connection to localhost
 			Assert.That(connection.ReportingService, Is.Not.Null);
 
 			var extensionsList = connection.ExecutionService.ListRenderingExtensions();

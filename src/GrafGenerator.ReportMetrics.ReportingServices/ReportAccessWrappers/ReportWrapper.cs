@@ -29,10 +29,6 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers
 		public Result<ReportRenderInfo> Render(ReportRenderFormat format, ParamPack parameters)
 		{
 			var rs = _connection.ExecutionService;
-			rs.SetExecutionParameters(parameters.Pack(), "en-us");
-
-			var formatString = new ReportFormatConverter().ConvertTo(format, typeof (string)) as string;
-
 			byte[] result;
 
 			try
@@ -40,6 +36,11 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers
 				string mimeType, encoding, extension;
 				Warning[] warnings;
 				string[] streamIds;
+
+				var formatString = new ReportFormatConverter().ConvertTo(format, typeof(string)) as string;
+
+
+				rs.SetExecutionParameters(parameters.Pack(), "en-us");
 
 				result = rs.Render(formatString, null, out extension, out encoding, out mimeType, out warnings, out streamIds);
 				_diagInfo.Warnings = warnings ?? new Warning[0];

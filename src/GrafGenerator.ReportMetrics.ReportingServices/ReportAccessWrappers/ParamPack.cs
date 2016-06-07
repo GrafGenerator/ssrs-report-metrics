@@ -29,7 +29,7 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers
 		}
 
 
-		public ParamPack Create()
+		public static ParamPack Create()
 		{
 			return new ParamPack();
 		}

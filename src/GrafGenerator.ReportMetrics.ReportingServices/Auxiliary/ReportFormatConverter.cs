@@ -20,6 +20,8 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.Auxiliary
 						return ReportRenderFormat.Excel;
 					case "pdf":
 						return ReportRenderFormat.Pdf;
+					case "excel with formulas":
+						return ReportRenderFormat.Formularizer;
 
 					default:
 						return ReportRenderFormat.Unknown;
@@ -39,12 +41,12 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.Auxiliary
 				{
 					case ReportRenderFormat.Excel:
 						return "EXCEL";
-
 					case ReportRenderFormat.Html:
 						return "HTML4.0";
-
 					case ReportRenderFormat.Pdf:
 						return "PDF";
+					case ReportRenderFormat.Formularizer:
+						return "Excel with formulas";
 
 					default:
 						return "UNKNOWN";
