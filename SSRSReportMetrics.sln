@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.ReportMetrics
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.ReportMetrics.Tests", "src\GrafGenerator.ReportMetrics.Tests\GrafGenerator.ReportMetrics.Tests.csproj", "{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.ReportMetrics.Extensibility", "src\GrafGenerator.ReportMetrics.Extensibility\GrafGenerator.ReportMetrics.Extensibility.csproj", "{BE666245-A37D-4ADC-BD6C-6299E1B4D996}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D370E75F-81B7-496D-9CAF-2A7287BF0BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE666245-A37D-4ADC-BD6C-6299E1B4D996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE666245-A37D-4ADC-BD6C-6299E1B4D996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE666245-A37D-4ADC-BD6C-6299E1B4D996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE666245-A37D-4ADC-BD6C-6299E1B4D996}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

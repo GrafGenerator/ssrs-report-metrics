@@ -43,6 +43,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrafGenerator.ReportMetrics.Extensibility\GrafGenerator.ReportMetrics.Extensibility.csproj">
+      <Project>{be666245-a37d-4adc-bd6c-6299e1b4d996}</Project>
+      <Name>GrafGenerator.ReportMetrics.Extensibility</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

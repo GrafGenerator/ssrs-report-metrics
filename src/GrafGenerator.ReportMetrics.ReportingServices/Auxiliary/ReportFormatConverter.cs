@@ -1,20 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using GrafGenerator.ReportMetrics.Extensibility;
 
 namespace GrafGenerator.ReportMetrics.ReportingServices.Auxiliary
 {
-	class ReportFormatConverter: TypeConverter
+	class ReportFormatConverter : IConverter
 	{
-		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-		{
-			if (sourceType == typeof (string))
-				return true;
-
-			return base.CanConvertFrom(context, sourceType);
-		}
-
-		public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
+		public object ConvertFrom(object value, CultureInfo culture = null)
 		{
 			var s = value as string;
 			if(s != null)
@@ -33,10 +26,10 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.Auxiliary
 				}
 			}
 
-			return base.ConvertFrom(context, culture, value);
+			return null;
 		}
 
-		public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+		public object ConvertTo(object value, Type destinationType, CultureInfo culture = null)
 		{
 			if (destinationType == typeof (string))
 			{
@@ -58,7 +51,7 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.Auxiliary
 				}
 			}
 
-			return base.ConvertTo(context, culture, value, destinationType);
+			return null;
 		}
 	}
 }

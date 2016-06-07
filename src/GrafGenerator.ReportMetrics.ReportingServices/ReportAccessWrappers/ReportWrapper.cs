@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Web.Services.Protocols;
+using GrafGenerator.ReportMetrics.Extensibility;
 using GrafGenerator.ReportMetrics.ReportingServices.Auxiliary;
 using GrafGenerator.ReportMetrics.ReportingServices.Connection;
 
@@ -6,26 +9,64 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers
 {
 	public class ReportWrapper
 	{
-		private readonly string _reportPath;
-		private string _sessionId;
+		private readonly ServerConnection _connection;
+		private readonly ReportDiagnosticsInfo _diagInfo;
 
 		private ReportWrapper(ServerConnection connection, string reportPath)
 		{
-			_reportPath = reportPath;
+			_connection = connection;
 
-			var rs = connection.ExecutionService;
+			var rs = _connection.ExecutionService;
+			_diagInfo = new ReportDiagnosticsInfo();
+
 			rs.ExecutionHeaderValue = new ExecutionHeader();
+			rs.LoadReport(reportPath, null);
 
-			_sessionId = rs.ExecutionHeaderValue.ExecutionID;
+			_diagInfo.SessionId = rs.ExecutionHeaderValue.ExecutionID;
 		}
 
 
-		public Stream Render(ReportRenderFormat format, ParamPack parameters)
+		public Result<ReportRenderInfo> Render(ReportRenderFormat format, ParamPack parameters)
 		{
-			return null;
+			var rs = _connection.ExecutionService;
+			rs.SetExecutionParameters(parameters.Pack(), "en-us");
+
+			var formatString = new ReportFormatConverter().ConvertTo(format, typeof (string)) as string;
+
+			byte[] result;
+
+			try
+			{
+				string mimeType, encoding, extension;
+				Warning[] warnings;
+				string[] streamIds;
+
+				result = rs.Render(formatString, null, out extension, out encoding, out mimeType, out warnings, out streamIds);
+				_diagInfo.Warnings = warnings ?? new Warning[0];
+
+				var execInfo = rs.GetExecutionInfo();
+				_diagInfo.ExecutionDateTime = execInfo.ExecutionDateTime;
+			}
+			catch (SoapException e)
+			{
+				return Result.Fail<ReportRenderInfo>(e.ToString());
+			}
+
+			try
+			{
+				var stream = new MemoryStream();
+				stream.Write(result, 0, result.Length);
+				stream.Position = 0;
+
+				return Result.Ok(ReportRenderInfo.Create(stream, _diagInfo));
+			}
+			catch (Exception e)
+			{
+				return Result.Fail<ReportRenderInfo>(e.ToString());
+			}
 		}
 
-		public ReportWrapper Create(ServerConnection connection, string reportPath)
+		public static ReportWrapper Create(ServerConnection connection, string reportPath)
 		{
 			return new ReportWrapper(connection, reportPath);
 		}

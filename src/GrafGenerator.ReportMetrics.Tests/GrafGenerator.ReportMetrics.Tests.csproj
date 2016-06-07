@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GrafGenerator.ReportMetrics.Extensibility\GrafGenerator.ReportMetrics.Extensibility.csproj">
+      <Project>{be666245-a37d-4adc-bd6c-6299e1b4d996}</Project>
+      <Name>GrafGenerator.ReportMetrics.Extensibility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GrafGenerator.ReportMetrics.ReportingServices\GrafGenerator.ReportMetrics.ReportingServices.csproj">
       <Project>{c50be18a-e05d-41d4-8c6f-53c5a8480e2a}</Project>
       <Name>GrafGenerator.ReportMetrics.ReportingServices</Name>
