@@ -44,9 +44,6 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.Connection
 			return new ServerConnection(url, useDefaultCredentials);
 		}
 
-		public static ServerConnection Default
-		{
-			get { return Create("http://localhost/ReportServer", true); } // todo: introduce global configuration
-		}
+		public static ServerConnection Default => Create("http://localhost/ReportServer", true);
 	}
 }
