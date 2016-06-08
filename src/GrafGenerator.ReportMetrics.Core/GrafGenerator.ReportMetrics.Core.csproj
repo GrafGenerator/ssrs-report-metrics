@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Location.cs" />
     <Compile Include="Model\ParamPack.cs" />
+    <Compile Include="Model\LocationSet.cs" />
     <Compile Include="Model\ParamSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
