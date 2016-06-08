@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReportMetrics.Core.Model
+namespace GrafGenerator.ReportMetrics.Core.Model
 {
 	public class ParamPack: IEnumerable<KeyValuePair<string, string>>
 	{

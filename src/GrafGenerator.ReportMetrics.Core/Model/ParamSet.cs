@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers;
 
-namespace ReportMetrics.Core.Model
+namespace GrafGenerator.ReportMetrics.Core.Model
 {
 	public class ParamSet
 	{

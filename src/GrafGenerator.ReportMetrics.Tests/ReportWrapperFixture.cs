@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
+using GrafGenerator.ReportMetrics.Core.Model;
 using GrafGenerator.ReportMetrics.ReportingServices.Auxiliary;
 using GrafGenerator.ReportMetrics.ReportingServices.Connection;
 using GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers;
 using GrafGenerator.ReportMetrics.Tests.Config;
 using NUnit.Framework;
-using ReportMetrics.Core.Model;
 
 namespace GrafGenerator.ReportMetrics.Tests
 {

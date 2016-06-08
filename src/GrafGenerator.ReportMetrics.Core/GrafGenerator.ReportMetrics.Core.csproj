@@ -7,8 +7,8 @@
     <ProjectGuid>{91DA6906-DBAB-4C26-9A9C-E369E675A723}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReportMetrics.Core</RootNamespace>
-    <AssemblyName>ReportMetrics.Core</AssemblyName>
+    <RootNamespace>GrafGenerator.ReportMetrics.Core</RootNamespace>
+    <AssemblyName>GrafGenerator.ReportMetrics.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
