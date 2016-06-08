@@ -2,7 +2,7 @@
 using System.Linq;
 using GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers;
 
-namespace ReportMetrics.Core
+namespace ReportMetrics.Core.Model
 {
 	public class ParamSet
 	{
