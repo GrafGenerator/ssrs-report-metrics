@@ -41,12 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ParamSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GrafGenerator.ReportMetrics.Extensibility\GrafGenerator.ReportMetrics.Extensibility.csproj">
       <Project>{be666245-a37d-4adc-bd6c-6299e1b4d996}</Project>
       <Name>GrafGenerator.ReportMetrics.Extensibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GrafGenerator.ReportMetrics.ReportingServices\GrafGenerator.ReportMetrics.ReportingServices.csproj">
+      <Project>{C50BE18A-E05D-41D4-8C6F-53C5A8480E2A}</Project>
+      <Name>GrafGenerator.ReportMetrics.ReportingServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
