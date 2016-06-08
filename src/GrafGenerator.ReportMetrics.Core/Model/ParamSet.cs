@@ -29,9 +29,12 @@ namespace GrafGenerator.ReportMetrics.Core.Model
 
 		public ParamPack Merge(IEnumerable<string> names)
 		{
-			return _packs
-				.Where(kv => names.Contains(kv.Key))
-				.Aggregate(ParamPack.Create(""), (aggr, cur) => aggr.Merge(cur.Value));
+			var filteredPacks =
+				from name in names
+				select _packs[name];
+
+			return filteredPacks
+				.Aggregate(ParamPack.Create(""), (aggr, cur) => aggr.Merge(cur));
 		}
 
 
