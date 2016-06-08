@@ -29,6 +29,16 @@ namespace GrafGenerator.ReportMetrics.Core.Model
 		}
 
 
+		public ParameterValue[] Pack(IEnumerable<string> names)
+		{
+			return ParamPack
+				.Create(_parameters
+					.Where(kv => Name.Contains(kv.Key))
+					.ToDictionary(kv => kv.Key, kv => kv.Value))
+				.Pack();
+		}
+
+
 		public ParamSet Merge(ParamPack parameters)
 		{
 			var newSet = new ParamSet(Name, ParamPack.Create(_parameters));
