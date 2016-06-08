@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Web.Services.Protocols;
 using GrafGenerator.ReportMetrics.Core.Model;
 using GrafGenerator.ReportMetrics.ReportingServices.Auxiliary;
 using GrafGenerator.ReportMetrics.ReportingServices.Connection;
@@ -23,15 +24,18 @@ namespace GrafGenerator.ReportMetrics.Tests
 			_reportPath = config.ReportPath;
 		}
 
-		[Test]
-		public void SimpleTest()
+		[TestCase(ReportRenderFormat.Formularizer)]
+		[TestCase(ReportRenderFormat.Excel)]
+		[TestCase(ReportRenderFormat.Html)]
+		[TestCase(ReportRenderFormat.Pdf)]
+		public void SmokeTest_AllFormats(ReportRenderFormat format)
 		{
 			var connection = ServerConnection.Create(_serverPath, true);
 			var reportWrapper = ReportWrapper.Create(connection, _reportPath);
 
 			var parameters = ParamPack.Create();
 
-			var result = reportWrapper.Render(ReportRenderFormat.Formularizer, parameters.Pack());
+			var result = reportWrapper.Render(format, parameters.Pack());
 
 			if (result.Failure)
 				Debug.WriteLine(result.Error);
@@ -40,6 +44,19 @@ namespace GrafGenerator.ReportMetrics.Tests
 
 			Assert.That(result.Value.Stream, Is.Not.Null);
 			Assert.That(result.Value.Stream.Length, Is.GreaterThan(0));
+		}
+
+		[Test]
+		public void SmokeTest_UnknownFails()
+		{
+			var connection = ServerConnection.Create(_serverPath, true);
+			var reportWrapper = ReportWrapper.Create(connection, _reportPath);
+
+			var parameters = ParamPack.Create();
+
+			var result = reportWrapper.Render(ReportRenderFormat.Unknown, parameters.Pack());
+
+			Assert.That(result.Failure, Is.True);
 		}
 	}
 }
