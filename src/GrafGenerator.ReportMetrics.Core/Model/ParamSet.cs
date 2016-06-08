@@ -5,52 +5,39 @@ namespace GrafGenerator.ReportMetrics.Core.Model
 {
 	public class ParamSet
 	{
-		public string Name { get; }
-		private readonly Dictionary<string, string> _parameters = new Dictionary<string, string>();
+		private readonly Dictionary<string, ParamPack> _packs;
 
 
-		private ParamSet(string name, ParamPack parameters)
+		private ParamSet(Dictionary<string, ParamPack> packs)
 		{
-			Name = name;
-			MergeInternal(parameters);
+			_packs = packs;
 		}
 
-		private void MergeInternal(ParamPack parameters)
+		public ParamSet New(string name, ParamPack location)
 		{
-			var other = parameters.ToDictionary(p => p.Key, p => p.Value);
+			if (_packs.ContainsKey(name))
+				_packs[name] = location;
+			else
+				_packs.Add(name, location);
 
-			foreach (var p in other)
-			{
-				if (_parameters.ContainsKey(p.Key))
-					_parameters[p.Key] = p.Value;
-				else
-					_parameters.Add(p.Key, p.Value);
-			}
+			return new ParamSet(_packs);
 		}
 
 
-		public ParameterValue[] Pack(IEnumerable<string> names)
+		public ParamPack this[string key] => _packs[key];
+
+
+		public ParamPack Merge(IEnumerable<string> names)
 		{
-			return ParamPack
-				.Create(_parameters
-					.Where(kv => Name.Contains(kv.Key))
-					.ToDictionary(kv => kv.Key, kv => kv.Value))
-				.Pack();
+			return _packs
+				.Where(kv => names.Contains(kv.Key))
+				.Aggregate(ParamPack.Create(""), (aggr, cur) => aggr.Merge(cur.Value));
 		}
 
 
-		public ParamSet Merge(ParamPack parameters)
+		public static ParamSet Create()
 		{
-			var newSet = new ParamSet(Name, ParamPack.Create(_parameters));
-			newSet.MergeInternal(parameters);
-
-			return newSet;
-		}
-
-
-		public static ParamSet Create(string name, ParamPack parameters)
-		{
-			return new ParamSet(name, parameters);
+			return new ParamSet(null);
 		}
 	}
 }

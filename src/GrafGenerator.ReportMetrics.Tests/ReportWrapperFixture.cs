@@ -33,7 +33,7 @@ namespace GrafGenerator.ReportMetrics.Tests
 			var connection = ServerConnection.Create(_serverPath, true);
 			var reportWrapper = ReportWrapper.Create(connection, _reportPath);
 
-			var parameters = ParamPack.Create();
+			var parameters = ParamPack.Create("pack1");
 
 			var result = reportWrapper.Render(format, parameters.Pack());
 
@@ -52,7 +52,7 @@ namespace GrafGenerator.ReportMetrics.Tests
 			var connection = ServerConnection.Create(_serverPath, true);
 			var reportWrapper = ReportWrapper.Create(connection, _reportPath);
 
-			var parameters = ParamPack.Create();
+			var parameters = ParamPack.Create("pack1");
 
 			var result = reportWrapper.Render(ReportRenderFormat.Unknown, parameters.Pack());
 

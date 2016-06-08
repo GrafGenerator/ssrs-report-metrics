@@ -24,7 +24,7 @@ namespace GrafGenerator.ReportMetrics.Core.Model
 		}
 
 
-		public Location this[string index] => _locations[index];
+		public Location this[string key] => _locations[key];
 
 
 		public static LocationSet Create()
