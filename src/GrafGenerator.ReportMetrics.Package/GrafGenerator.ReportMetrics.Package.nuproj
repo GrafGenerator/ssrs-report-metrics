@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrafGenerator.ReportMetrics.Core\GrafGenerator.ReportMetrics.Core.csproj" />
+    <ProjectReference Include="..\GrafGenerator.ReportMetrics.Extensibility\GrafGenerator.ReportMetrics.Extensibility.csproj" />
+    <ProjectReference Include="..\GrafGenerator.ReportMetrics.ReportingServices\GrafGenerator.ReportMetrics.ReportingServices.csproj" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>6c931f0e-874e-482c-96d2-030273996dc9</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NuProjPath Condition=" '$(NuProjPath)' == '' ">$(MSBuildExtensionsPath)\NuProj\</NuProjPath>
+  </PropertyGroup>
+  <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
+  <PropertyGroup Label="Configuration">
+    <Id>GrafGenerator.ReportMetrics</Id>
+    <Version>0.2.0</Version>
+    <Title>GrafGenerator.ReportMetrics</Title>
+    <Authors>Nikita Ivanov (grafgenerator@gmail.com)</Authors>
+    <Owners>Nikita Ivanov (grafgenerator@gmail.com)</Owners>
+    <Summary>Library for automating reports testing and comparison.</Summary>
+    <Description>Contains set of classes that help with automating reports execution with different parameters, executing and comparing them in different formats.</Description>
+    <ReleaseNotes>
+    </ReleaseNotes>
+    <ProjectUrl>
+    </ProjectUrl>
+    <LicenseUrl>
+    </LicenseUrl>
+    <Copyright>Copyright © 2016 Nikita Ivanov (grafgenerator@gmail.com)</Copyright>
+    <Tags>report,reports,SSRS,test,automate,compare</Tags>
+    <GenerateSymbolPackage>true</GenerateSymbolPackage>
+  </PropertyGroup>
+  <Import Project="$(NuProjPath)\NuProj.targets" />
+</Project>
