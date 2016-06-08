@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web.Services.Protocols;
 using GrafGenerator.ReportMetrics.Extensibility;
 using GrafGenerator.ReportMetrics.ReportingServices.Auxiliary;
@@ -26,7 +28,7 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers
 		}
 
 
-		public Result<ReportRenderInfo> Render(ReportRenderFormat format, ParamPack parameters)
+		public Result<ReportRenderInfo> Render(ReportRenderFormat format, IEnumerable<ParameterValue> parameters)
 		{
 			var rs = _connection.ExecutionService;
 			byte[] result;
@@ -40,7 +42,7 @@ namespace GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers
 				var formatString = new ReportFormatConverter().ConvertTo(format, typeof(string)) as string;
 
 
-				rs.SetExecutionParameters(parameters.Pack(), "en-us");
+				rs.SetExecutionParameters(parameters.ToArray(), "en-us");
 
 				result = rs.Render(formatString, null, out extension, out encoding, out mimeType, out warnings, out streamIds);
 				_diagInfo.Warnings = warnings ?? new Warning[0];

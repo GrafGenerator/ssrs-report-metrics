@@ -4,6 +4,7 @@ using GrafGenerator.ReportMetrics.ReportingServices.Connection;
 using GrafGenerator.ReportMetrics.ReportingServices.ReportAccessWrappers;
 using GrafGenerator.ReportMetrics.Tests.Config;
 using NUnit.Framework;
+using ReportMetrics.Core.Model;
 
 namespace GrafGenerator.ReportMetrics.Tests
 {
@@ -30,7 +31,7 @@ namespace GrafGenerator.ReportMetrics.Tests
 
 			var parameters = ParamPack.Create();
 
-			var result = reportWrapper.Render(ReportRenderFormat.Formularizer, parameters);
+			var result = reportWrapper.Render(ReportRenderFormat.Formularizer, parameters.Pack());
 
 			if (result.Failure)
 				Debug.WriteLine(result.Error);
