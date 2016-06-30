@@ -45,6 +45,8 @@
     <Compile Include="Model\ParamPack.cs" />
     <Compile Include="Model\LocationSet.cs" />
     <Compile Include="Model\ParamSet.cs" />
+    <Compile Include="Model\Report.cs" />
+    <Compile Include="Model\TestCase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

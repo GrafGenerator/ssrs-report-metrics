@@ -13,12 +13,12 @@ namespace GrafGenerator.ReportMetrics.Core.Model
 			_packs = packs;
 		}
 
-		public ParamSet New(string name, ParamPack location)
+		public ParamSet New(string name, ParamPack pack)
 		{
 			if (_packs.ContainsKey(name))
-				_packs[name] = location;
+				_packs[name] = pack;
 			else
-				_packs.Add(name, location);
+				_packs.Add(name, pack);
 
 			return new ParamSet(_packs);
 		}
